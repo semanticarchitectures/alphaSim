@@ -6,6 +6,8 @@ from alphaSim.simulation import Simulation
 from alphaSim.sensors.base import Sensor
 from alphaSim.aircraft.base import Aircraft
 from alphaSim.terrain.loader import TerrainData
+from alphaSim.visualization import save_plots
+import matplotlib.pyplot as plt
 
 
 def main():
@@ -53,6 +55,11 @@ def main():
                 print(f"    Aircraft {detection['aircraft_id']}: "
                       f"distance={detection['distance']:.1f}m, "
                       f"quality={detection['quality']:.2f}")
+
+    # Generate and save visualizations
+    print("\nGenerating visualizations...")
+    save_plots(sim, observations)
+    print("\nVisualization complete! Check the 'outputs' directory for plots.")
 
 
 if __name__ == "__main__":
